@@ -2,19 +2,14 @@ const button = document.querySelector("button")
 const output = document.querySelector(".output")
 
 button.addEventListener("click", function(){
-    const amount = document.querySelector("input").value
-    const percentAmount = document.querySelector("#percent").value
+    let amount = document.querySelector("input").value
+    let percentAmount = document.querySelector("#percent").value
+    
     if(amount < 0){
         return isNegNum(amount)
     }
     if(percentAmount < 0){
         return isNegNum(percentAmount)
-    }
-    if(!isNaN(amount)){
-        return notNum(amount)
-    }
-    if(!isNaN(percentAmount)){
-        return notNum(percentAmount)
     }
     
     let tip = amount*addPercent(amount)
@@ -29,14 +24,7 @@ button.addEventListener("click", function(){
     function isNegNum(num){
         let message = `<h1>Amount must be greater than zero</h1>`
         num = message
-        output.innerHTML = message
+        output.innerHTML = num
     }
-
-    function notNum(num){
-        let message = `<h1>Must be a number</h1>`
-        num = message
-        output.innerHTML = message
-    }
-
 });
 
